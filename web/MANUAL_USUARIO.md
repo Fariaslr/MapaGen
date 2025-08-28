@@ -1,4 +1,4 @@
-# Manual do Usuário - MAPA Gen
+# Manual do Usuário - Sistema de Validação MAPA
 
 ## 🎯 Objetivo do Sistema
 
