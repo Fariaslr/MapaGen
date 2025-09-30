@@ -41,7 +41,7 @@ const CcpsList = ({ onViewChange }) => {
     const labels = {
       ativo: 'Ativo',
       pendente: 'Pendente',
-      em_analise: 'Em Análise',
+      em_diligencia: 'Em Diligencia',
       inativo: 'Inativo'
     };
 
@@ -62,7 +62,7 @@ const CcpsList = ({ onViewChange }) => {
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
           <h2 className="text-3xl font-bold text-gray-900">CCPS Cadastrados</h2>
-          <p className="text-gray-600 mt-2">Gerencie os Centros de Controle de Pragas e Sanitização</p>
+          <p className="text-gray-600 mt-2">Gerencie os Centros de Controle de Processamento de Sêmen</p>
         </div>
         <Button className="bg-green-600 hover:bg-green-700">
           <Plus className="h-4 w-4 mr-2" />
