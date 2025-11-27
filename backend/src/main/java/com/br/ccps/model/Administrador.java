@@ -1,0 +1,15 @@
+package com.br.ccps.model;
+
+import jakarta.persistence.DiscriminatorValue;
+import jakarta.persistence.Entity;
+import lombok.Getter;
+import lombok.Setter;
+
+@Entity
+@Getter
+@Setter
+@DiscriminatorValue("Admin") 
+public class Administrador extends Pessoa {
+    private static final long serialVersionUID = 1L;
+
+}

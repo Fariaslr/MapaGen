@@ -3,36 +3,25 @@ package com.br.ccps.model;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.time.LocalDate;
 import java.util.List;
-import java.util.UUID;
+
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Veterinario {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
-
-    private String nome;
+@DiscriminatorValue("Veterinario")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+public class Veterinario extends Pessoa {
+	
+	private static final long serialVersionUID = 1L;
 
     @Column(length = 20, unique = true)
-    private String crmv;
-    
-    private String cpf;
-    
-    private LocalDate dataNascimento;
-
-    private String email;
-    
-    private String senha;
-
-    private String telefone;
-
+    private String crmv;    
+   
     @OneToMany(mappedBy = "veterinario")
     private List<Ccps> ccpsList;
 }
