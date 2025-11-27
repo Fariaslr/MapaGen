@@ -28,6 +28,8 @@ public class Veterinario {
     private LocalDate dataNascimento;
 
     private String email;
+    
+    private String senha;
 
     private String telefone;
 
