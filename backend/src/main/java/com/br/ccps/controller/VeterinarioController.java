@@ -1,7 +1,7 @@
 package com.br.ccps.controller;
 
 import com.br.ccps.model.Veterinario;
-import com.br.ccps.records.VeterinarioRecordDto;
+import com.br.ccps.records.PessoaRecordDto;
 import com.br.ccps.service.VeterinarioService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +19,7 @@ public class VeterinarioController {
     private VeterinarioService veterinarioService;
 
     @PostMapping
-    public ResponseEntity<Veterinario> adicionar(@RequestBody VeterinarioRecordDto dto) {
+    public ResponseEntity<Veterinario> adicionar(@RequestBody PessoaRecordDto dto) {
         Veterinario novoVeterinario = veterinarioService.adicionarVeterinario(dto);
         return ResponseEntity.ok(novoVeterinario);
     }
@@ -35,7 +35,7 @@ public class VeterinarioController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Veterinario> atualizar(@PathVariable UUID id, @RequestBody VeterinarioRecordDto dto) {
+    public ResponseEntity<Veterinario> atualizar(@PathVariable UUID id, @RequestBody PessoaRecordDto dto) {
         return ResponseEntity.ok(veterinarioService.atualizarVeterinario(id, dto));
     }
 

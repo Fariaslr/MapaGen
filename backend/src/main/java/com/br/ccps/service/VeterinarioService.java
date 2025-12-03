@@ -1,17 +1,13 @@
 package com.br.ccps.service;
 
 import com.br.ccps.model.Veterinario;
-import com.br.ccps.records.VeterinarioRecordDto;
+import com.br.ccps.records.PessoaRecordDto;
 import com.br.ccps.repos.VeterinarioRepository;
-
 import lombok.RequiredArgsConstructor;
-
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.List;
 import java.util.UUID;
 
@@ -24,7 +20,7 @@ public class VeterinarioService {
     private final PasswordEncoder passwordEncoder;
 
     @Transactional
-    public Veterinario adicionarVeterinario(VeterinarioRecordDto dto) {
+    public Veterinario adicionarVeterinario(PessoaRecordDto dto) {
         if (veterinarioRepository.existsByCrmv(dto.crmv())) {
             throw new IllegalArgumentException("CRMV já cadastrado");
         }
@@ -37,9 +33,6 @@ public class VeterinarioService {
         vet.setEmail(dto.email());
         vet.setCpf(dto.cpf());
         vet.setCrmv(dto.crmv());
-        vet.setUfCrmv(dto.ufCrmv());
-        vet.setTelefone(dto.telefone());
-
         vet.setSenha(passwordEncoder.encode(dto.senha()));
         return veterinarioRepository.save(vet);
     }
@@ -54,7 +47,7 @@ public class VeterinarioService {
     }
 
     @Transactional
-    public Veterinario atualizarVeterinario(UUID id, VeterinarioRecordDto dto) {
+    public Veterinario atualizarVeterinario(UUID id, PessoaRecordDto dto) {
         Veterinario existente = buscarVeterinarioPorId(id);        
         existente.setNome(dto.nome());
         existente.setTelefone(dto.telefone());

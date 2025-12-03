@@ -9,8 +9,8 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@DiscriminatorValue("Tecnico")
-public class Tecnico extends Pessoa {
+@DiscriminatorValue("TecnicoMapa")
+public class TecnicoMapa extends Pessoa {
 
 	private static final long serialVersionUID = 1L;
 

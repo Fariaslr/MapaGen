@@ -8,4 +8,5 @@ import com.br.ccps.model.Pessoa;
 
 public interface PessoaRepository extends JpaRepository<Pessoa, UUID> {
 	boolean existsByEmail(String email);
+	boolean existsByCpf(String cfp);
 }
